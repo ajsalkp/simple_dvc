@@ -15,7 +15,8 @@ def get_data(config_path):
     #print(config)
     data_path = config['data_source']['s3_source']
     df = pd.read_csv(data_path,sep=',',encoding='utf-8')
-    print(df.head())
+    return df
+
 
 if __name__ =="__main__":
     args = argparse.ArgumentParser()
@@ -23,5 +24,5 @@ if __name__ =="__main__":
     print(args)
     parsed_args = args.parse_args()
     print(parsed_args.config)
-    get_data(config_path=parsed_args.config)
+    data = get_data(config_path=parsed_args.config)
 
